@@ -10,11 +10,11 @@ musical = "http://ticket.interpark.com/Ticket/Goods/GoodsInfo.asp?GoodsCode=2000
 
 
 def login():
-    #인터파크 홈페이지 접속하기
+    # 인터파크 홈페이지 접속하기
     driver.get(main)
     driver.switch_to.frame(driver.find_element_by_tag_name('iframe'))
 
-    #로그인
+    # 로그인
     driver.find_element_by_id('userId').send_keys(id)
     driver.find_element_by_id('userPwd').send_keys(pwd)
     driver.find_element_by_id("btn_login").click()
@@ -35,12 +35,12 @@ def select_date():
     iframe = driver.find_element_by_id('ifrmBookStep')
     driver.switch_to.frame(iframe)
 
-    #날짜 선택하기
+    # 날짜 선택하기
     driver.find_element_by_xpath('//*[@id="CellPlayDate"]').click()
     time.sleep(0.7)
     # 동적으로 바꾸기
 
-    #다음단계 넘어가기
+    # 다음단계 넘어가기
     driver.switch_to.default_content()
     driver.execute_script("javascript:fnNextStep('P');")
 
@@ -54,7 +54,7 @@ def select_seat_2nd():
     driver.switch_to.frame(driver.find_element_by_id('ifrmSeatDetail'))
     time.sleep(0.7)
 
-    #좌석 2층, 3층으로 이동하기
+    # 좌석 2층, 3층으로 이동하기
     driver.execute_script("javascript:GetBlockSeatList('', '', 'RGN002')")
 
 
@@ -120,13 +120,13 @@ def input_birth():
     driver.switch_to.frame(iframe)
     time.sleep(0.5)
 
-    #생일 입력하기
+    # 생일 입력하기
     birth = '030105'
     driver.find_element_by_id('YYMMDD').send_keys(birth)
 
     time.sleep(0.3)
 
-    #다음단계 넘어가기
+    # 다음단계 넘어가기
     driver.switch_to.default_content()
     driver.execute_script("javascript:fnNextStep('P');")
 
@@ -136,18 +136,18 @@ def purchase():
     driver.switch_to.frame(iframe)
     time.sleep(1)
 
-    #무통장 입금 선택하기
+    # 무통장 입금 선택하기
     rad = driver.find_elements_by_xpath('//*[@id="Payment_22004"]/td/input')[0]
     rad.click()
     time.sleep(0.7)
 
-    #입금할 은행 선택하기
+    # 입금할 은행 선택하기
     driver.find_element_by_id('BankCode').click()
     bank = driver.find_element_by_xpath('//*[@id="BankCode"]/option[3]')
     bank.click()
     time.sleep(0.5)
 
-    #다음단계 넘어가기
+    # 다음단계 넘어가기
     driver.switch_to.default_content()
     driver.execute_script("javascript:fnNextStep('P');")
 
@@ -163,9 +163,9 @@ def final_agree():
     chk2.click()
     time.sleep(0.5)
 
-    #다음단계 넘어가기
-    #driver.switch_to.default_content()
-    #driver.execute_script("javascript:fnNextStep('P');")
+    # 다음단계 넘어가기
+    # driver.switch_to.default_content()
+    # driver.execute_script("javascript:fnNextStep('P');")
 
 
 login()
