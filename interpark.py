@@ -3,7 +3,7 @@ from selenium import webdriver
 import time
 
 id = 'happine2s'
-pwd = 'psy3813!'
+pwd = 'asdf1384/'
 driver = webdriver.Chrome('/Users/bagsoyun/Downloads/chromedriver')
 main = "https://ticket.interpark.com/Gate/TPLogin.asp?CPage=B&MN=Y&tid1=main_gnb&tid2=right_top&tid3=login&tid4=login"
 musical = "http://ticket.interpark.com/Ticket/Goods/GoodsInfo.asp?GoodsCode=20001033"
@@ -164,8 +164,8 @@ def final_agree():
     time.sleep(0.5)
 
     # 다음단계 넘어가기
-    # driver.switch_to.default_content()
-    # driver.execute_script("javascript:fnNextStep('P');")
+    driver.switch_to.default_content()
+    driver.execute_script("javascript:fnNextStep('P');")
 
 
 login()
